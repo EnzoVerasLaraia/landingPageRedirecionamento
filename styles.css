@@ -1,0 +1,307 @@
+/* Design tokens */
+:root {
+  --color-primary: #05df72;
+  --color-bg-dark: rgb(10, 22, 40);
+  --color-blue-glow: rgba(43, 127, 255, 0.3);
+  --color-blue-light: rgba(81, 162, 255, 0.2);
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray: #d1d5dc;
+  
+  --font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-size-small: 14px;
+  --font-size-base: 16px;
+  --font-size-large: 20px;
+  --font-size-xl: 30px;
+  
+  --spacing-xs: 8px;
+  --spacing-sm: 15px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --max-width: 1200px;
+}
+
+/* Reset & Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: 1.5;
+  color: var(--color-white);
+  background: var(--color-bg-dark);
+}
+
+/* Typography */
+h1 {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+h2 {
+  font-size: var(--font-size-large);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+  color: var(--color-black);
+}
+
+/* Hero Banner */
+.hero-banner {
+  position: relative;
+  min-height: 600px;
+  padding: var(--spacing-xl) var(--spacing-md);
+  background: linear-gradient(rgba(22, 36, 86, 0.2) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%),
+              linear-gradient(90deg, var(--color-bg-dark) 0%, var(--color-bg-dark) 100%);
+  overflow: hidden;
+}
+
+.grid-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.horizontal-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-blue-glow), transparent);
+}
+
+.horizontal-line:nth-child(1) { top: 25%; }
+.horizontal-line:nth-child(2) { top: 50%; }
+.horizontal-line:nth-child(3) { top: 75%; }
+
+.vertical-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--color-blue-glow), transparent);
+}
+
+.vertical-line:nth-child(4) { left: 25%; }
+.vertical-line:nth-child(5) { left: 50%; }
+.vertical-line:nth-child(6) { left: 75%; }
+
+.hero-content {
+  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-top: var(--spacing-xl);
+}
+
+ .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 40px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 40px;
+            animation: scroll 30s linear infinite;
+            width: fit-content;
+        }
+
+        .ai-icons-grid {
+            display: flex;
+            gap: 40px;
+            flex-shrink: 0;
+        }
+
+        .ai-icon {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: brightness(0.9);
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .ai-icon:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        /* Blur nas bordas */
+        .carousel-container::before,
+        .carousel-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 150px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .carousel-container::before {
+            left: 0;
+            background: linear-gradient(to right, #0A172A, transparent);
+        }
+
+        .carousel-container::after {
+            right: 0;
+            background: linear-gradient(to left, #0A172A, transparent);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+.hero-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.hero-text p {
+  font-size: var(--font-size-base);
+  color: var(--color-white);
+  opacity: 0.9;
+}
+
+/* WhatsApp Section */
+.whatsapp-section {
+  background: var(--color-white);
+  padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.whatsapp-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  background: var(--color-white);
+  border-radius: var(--border-radius-md);
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.btn {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-weight: 700;
+  font-size: var(--font-size-small);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-black);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary);
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: brightness(1.1);
+  transform: scale(1.02);
+  color: white
+}
+
+.btn-secondary {
+  background: var(--color-white);
+  color: var(--color-black);
+  border: 1px solid var(--color-gray);
+}
+
+.btn-secondary:hover {
+  transition: transform 0.4s ease, filter 0.4s ease;
+  transform: scale(1.02);
+  color:#05df72;
+}
+
+.instructions {
+  text-align: center;
+  font-size: var(--font-size-small);
+  color: var(--color-black);
+  margin-bottom: var(--spacing-lg);
+}
+
+.instructions p {
+  margin-bottom: var(--spacing-xs);
+}
+
+.qr-toggle {
+  cursor: pointer;
+  color: var(--color-primary);
+}
+
+.qr-code {
+  display: none;
+  max-width: 224px;
+  margin: var(--spacing-md) auto 0;
+}
+
+.qr-code.visible {
+  display: block;
+}
+
+.qr-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-sm);
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+  h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  .ai-icons-grid {
+    grid-template-columns: repeat(9, 1fr);
+  }
+
+  .hero-text {
+    padding: 0 var(--spacing-xl);
+  }
+
+  .hero-text p {
+    font-size: var(--font-size-large);
+  }
+}
+
+/* Accessibility */
+.btn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+
